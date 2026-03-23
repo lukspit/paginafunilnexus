@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ArrowRight } from "lucide-react"
+import { ArrowRight, X } from "lucide-react"
 import Image from "next/image"
+import Cal, { getCalApi } from "@calcom/embed-react"
 
 interface ConversationalFormProps {
   isOpen: boolean
@@ -122,6 +123,12 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
       setIsTyping(true)
       // First message with a delay
       setTimeout(() => sendBotMessage(steps[0].question, "bot-0"), 600)
+
+      // Initialize Cal.com early
+      ;(async function () {
+        const cal = await getCalApi({ namespace: "demonstracao" })
+        cal("ui", { hideEventTypeDetails: false, layout: "month_view" })
+      })()
     }
     if (!isOpen) {
       setDidInit(false)
@@ -226,6 +233,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
     }
     setTimeout(() => {
       setIsSubmitting(false)
+      setIsTyping(false) // Para o "digitando..." infinito
       if (isQualified(finalAnswers)) {
         setPhase("qualified")
       } else {
@@ -252,8 +260,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-full sm:max-w-lg bg-white rounded-t-3xl sm:rounded-2xl flex flex-col overflow-hidden"
-            style={{ maxHeight: "90vh", height: "90vh" }}
+            className="relative w-full sm:max-w-lg bg-white sm:rounded-2xl flex flex-col overflow-hidden h-[100dvh] sm:h-[90vh] sm:max-h-[90vh]"
           >
             {/* Header */}
             <div className="shrink-0 px-6 pt-6 pb-4 border-b border-gray-100">
@@ -369,27 +376,18 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                   animate={{ opacity: 1, y: 0 }}
                   className="flex flex-col gap-4 mt-2"
                 >
-                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-base text-[#111827] leading-relaxed">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-base text-[#111827] leading-relaxed shrink-0">
                     Perfeito, {answers.name}! Sua clínica é exatamente o perfil
                     que atendemos. Escolha um horário abaixo para uma demonstração
-                    de 30 minutos do sistema em funcionamento.
+                    do sistema em funcionamento.
                   </div>
-                  <div className="w-full rounded-2xl overflow-hidden border border-gray-100 bg-gray-50 flex flex-col items-center justify-center py-12 gap-3">
-                    {/* Cal.com embed placeholder */}
-                    <div className="text-sm text-gray-400 text-center px-6">
-                      <div className="w-8 h-8 rounded-full bg-[#4A90E2]/10 flex items-center justify-center mx-auto mb-3">
-                        <span className="text-[#4A90E2] text-base font-bold">C</span>
-                      </div>
-                      <p className="font-medium text-gray-600 mb-1">
-                        Calendário de demonstrações
-                      </p>
-                      <p className="text-xs text-gray-400">
-                        Substitua este bloco pelo embed do Cal.com
-                      </p>
-                      <code className="block mt-2 text-xs bg-gray-100 rounded px-2 py-1 text-gray-500">
-                        Cal.com embed — configure sua URL
-                      </code>
-                    </div>
+                  <div className="w-full flex-1 min-h-[400px] overflow-y-auto rounded-2xl border border-gray-100 bg-white">
+                    <Cal
+                      namespace="demonstracao"
+                      calLink="nexusclinicas/demonstracao"
+                      style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                      config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
+                    />
                   </div>
                 </motion.div>
               )}
@@ -423,7 +421,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.2 }}
                   className={`shrink-0 px-4 pb-4 pt-2 border-t border-gray-100 transition-opacity duration-300 ${
-                    isTyping ? "opacity-30 pointer-events-none" : "opacity-100"
+                    isTyping ? "pointer-events-none" : ""
                   }`}
                 >
                   {currentStepData.type === "choice" ? (
@@ -432,7 +430,12 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                         <button
                           key={opt}
                           onClick={() => handleChoice(opt)}
-                          className="w-full sm:w-auto px-4 py-3 sm:py-2.5 rounded-xl border border-gray-200 bg-white text-base font-medium text-[#111827] hover:border-[#4A90E2] hover:bg-[#4A90E2]/5 transition-all cursor-pointer active:scale-95 text-left sm:text-center"
+                          disabled={isTyping}
+                          className={`w-full sm:w-auto px-4 py-3 sm:py-2.5 rounded-xl border text-base font-medium transition-all active:scale-95 text-left sm:text-center ${
+                            isTyping
+                              ? "bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed opacity-60 grayscale"
+                              : "border-gray-200 bg-white text-[#111827] hover:border-[#4A90E2] hover:bg-[#4A90E2]/5 cursor-pointer"
+                          }`}
                         >
                           {opt}
                         </button>
@@ -447,13 +450,22 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleTextSubmit()}
                         placeholder={currentStepData.placeholder}
-                        className="flex-1 px-4 py-3 rounded-xl border border-gray-200 bg-white text-base text-[#111827] placeholder-gray-400 outline-none focus:border-[#4A90E2] focus:ring-2 focus:ring-[#4A90E2]/10 transition-all"
+                        disabled={isTyping}
+                        className={`flex-1 px-4 py-3 rounded-xl border text-base outline-none transition-all ${
+                          isTyping
+                            ? "bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed opacity-60 grayscale placeholder-gray-300"
+                            : "bg-white border-gray-200 text-[#111827] placeholder-gray-400 focus:border-[#4A90E2] focus:ring-2 focus:ring-[#4A90E2]/10"
+                        }`}
                         autoFocus
                       />
                       <button
                         onClick={handleTextSubmit}
-                        disabled={!inputValue.trim()}
-                        className="w-11 h-11 rounded-xl bg-[#4A90E2] flex items-center justify-center disabled:opacity-40 hover:bg-[#3a80d2] transition-colors cursor-pointer shrink-0"
+                        disabled={!inputValue.trim() || isTyping}
+                        className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                          !inputValue.trim() || isTyping
+                            ? "bg-gray-300 cursor-not-allowed opacity-60 grayscale"
+                            : "bg-[#4A90E2] hover:bg-[#3a80d2] cursor-pointer"
+                        }`}
                       >
                         <ArrowRight size={18} className="text-white" strokeWidth={2.5} />
                       </button>
