@@ -119,6 +119,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
       setInputValue("")
       setPhase("chat")
       setDidInit(true)
+      setIsTyping(true)
       // First message with a delay
       setTimeout(() => sendBotMessage(steps[0].question, "bot-0"), 600)
     }
@@ -412,16 +413,18 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
               )}
             </div>
 
-            {/* Input area — only shown during chat and when not typing */}
+            {/* Input area — shown during chat, but greyed out while typing */}
             <AnimatePresence>
-              {phase === "chat" && !isTyping && !isSubmitting && currentStepData && (
+              {phase === "chat" && !isSubmitting && currentStepData && (
                 <motion.div
                   key={`input-${currentStep}`}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.2 }}
-                  className="shrink-0 px-4 pb-4 pt-2 border-t border-gray-100"
+                  className={`shrink-0 px-4 pb-4 pt-2 border-t border-gray-100 transition-opacity duration-300 ${
+                    isTyping ? "opacity-30 pointer-events-none" : "opacity-100"
+                  }`}
                 >
                   {currentStepData.type === "choice" ? (
                     <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2">
