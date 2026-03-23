@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, Check, Cross } from "lucide-react"
 
 // ─── Typewriter ───────────────────────────────────────────────────────────────
-const WORDS = ["consultas", "pacientes", "dinheiro"]
+const WORDS = ["Consultas", "Pacientes", "Dinheiro"]
 const TYPE_MS = 90
 const DELETE_MS = 55
 const PAUSE_TYPED = 2000
