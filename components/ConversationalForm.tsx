@@ -156,6 +156,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
   }
 
   function handleChoice(option: string) {
+    setIsTyping(true)
     const step = steps[currentStep]
     const userMsgId = `user-${currentStep}`
     setMessages((prev) => [...prev, { from: "user", text: option, id: userMsgId }])
@@ -186,10 +187,11 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
   }
 
   function handleTextSubmit() {
-    const step = steps[currentStep]
     const trimmed = inputValue.trim()
     if (!trimmed) return
+    setIsTyping(true)
 
+    const step = steps[currentStep]
     const userMsgId = `user-${currentStep}`
     setMessages((prev) => [...prev, { from: "user", text: trimmed, id: userMsgId }])
 
@@ -256,15 +258,13 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
             <div className="shrink-0 px-6 pt-6 pb-4 border-b border-gray-100">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#4A90E2]/10 flex items-center justify-center">
-                    <Image
-                      src="/logos/nexus_logo_symbol.png"
-                      alt="Nexus"
-                      width={20}
-                      height={20}
-                      className="w-5 h-5 object-contain"
-                    />
-                  </div>
+                  <Image
+                    src="/logos/nexus_logo_symbol.png"
+                    alt="Nexus"
+                    width={20}
+                    height={20}
+                    className="w-6 h-6 object-contain"
+                  />
                   <div>
                     <div className="text-sm font-semibold text-[#111827]">Nexus</div>
                     <div className="flex items-center gap-1.5">
@@ -308,7 +308,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                     className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-[80%] px-4 py-3 rounded-2xl text-[14px] leading-relaxed ${
+                      className={`max-w-[80%] px-4 py-3 rounded-2xl text-base leading-relaxed ${
                         msg.from === "bot"
                           ? "bg-gray-100 text-[#111827] rounded-tl-sm"
                           : "bg-[#4A90E2] text-white rounded-tr-sm"
@@ -368,7 +368,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                   animate={{ opacity: 1, y: 0 }}
                   className="flex flex-col gap-4 mt-2"
                 >
-                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-[14px] text-[#111827] leading-relaxed">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-base text-[#111827] leading-relaxed">
                     Perfeito, {answers.name}! Sua clínica é exatamente o perfil
                     que atendemos. Escolha um horário abaixo para uma demonstração
                     de 30 minutos do sistema em funcionamento.
@@ -400,11 +400,11 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                   animate={{ opacity: 1, y: 0 }}
                   className="flex flex-col gap-3 mt-2"
                 >
-                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-[14px] text-[#111827] leading-relaxed">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-base text-[#111827] leading-relaxed">
                     Obrigado pelo seu interesse! Nosso produto foi desenvolvido
                     especificamente para donos e gestores de clínicas.
                   </div>
-                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-[14px] text-[#111827] leading-relaxed">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 text-base text-[#111827] leading-relaxed">
                     Se você conhece alguém que gerencia uma clínica e pode se
                     beneficiar da Nexus, ficamos felizes se compartilhar! Obrigado.
                   </div>
@@ -429,7 +429,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                         <button
                           key={opt}
                           onClick={() => handleChoice(opt)}
-                          className="w-full sm:w-auto px-4 py-3 sm:py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-[#111827] hover:border-[#4A90E2] hover:bg-[#4A90E2]/5 transition-all cursor-pointer active:scale-95 text-left sm:text-center"
+                          className="w-full sm:w-auto px-4 py-3 sm:py-2.5 rounded-xl border border-gray-200 bg-white text-base font-medium text-[#111827] hover:border-[#4A90E2] hover:bg-[#4A90E2]/5 transition-all cursor-pointer active:scale-95 text-left sm:text-center"
                         >
                           {opt}
                         </button>
@@ -444,7 +444,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleTextSubmit()}
                         placeholder={currentStepData.placeholder}
-                        className="flex-1 px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-[#111827] placeholder-gray-400 outline-none focus:border-[#4A90E2] focus:ring-2 focus:ring-[#4A90E2]/10 transition-all"
+                        className="flex-1 px-4 py-3 rounded-xl border border-gray-200 bg-white text-base text-[#111827] placeholder-gray-400 outline-none focus:border-[#4A90E2] focus:ring-2 focus:ring-[#4A90E2]/10 transition-all"
                         autoFocus
                       />
                       <button
