@@ -9,28 +9,28 @@ const pains = [
     icon: Clock,
     headline: "Lead chega, secretária não está",
     description:
-      "Fora do horário comercial, fins de semana, horário de almoço. O paciente manda mensagem, não recebe resposta e fecha com a primeira clínica que responde.",
+      "Fora do expediente ou no fim de semana, o paciente manda mensagem e fica sem resposta. O resultado? Ele fecha com a primeira clínica que atender.",
     stat: "60x menos chance de converter após 24h sem resposta",
   },
   {
     icon: PhoneOff,
     headline: "Respondeu, mas demorou demais",
     description:
-      "Mesmo dentro do horário, a fila de mensagens acumula. Quando a secretária responde, o paciente já está conversando com outro consultório.",
+      "Mesmo no horário comercial, a fila de conversas acumula. Quando a secretária finalmente consegue responder, o paciente já está falando com o concorrente.",
     stat: "4x menos chance em 10 minutos vs. 5 minutos",
   },
   {
     icon: CalendarX,
     headline: "Lead sumiu sem marcar consulta",
     description:
-      "Pessoas que pediram informações mas nunca fecharam. Sem follow-up automático, esse lead some. Sem newsletter, sem contato. Perdido para sempre.",
+      "Pessoas que pedem informações e somem. Sem tempo para fazer um follow-up organizado, esse lead esfria e o investimento em marketing é desperdiçado.",
     stat: "Clínicas perdem em média 30% dos leads sem follow-up",
   },
   {
     icon: TrendingDown,
     headline: "Agenda com buracos toda semana",
     description:
-      "Cancelamentos de última hora sem reposição, horários ociosos, profissional parado. A agenda incompleta custa dinheiro que já deveria ter entrado.",
+      "Cancelamentos de última hora e horários ociosos. Uma agenda incompleta significa profissionais parados e dinheiro deixado na mesa todos os dias.",
     stat: "25–30% do custo operacional de clínicas é administrativo",
   },
 ]

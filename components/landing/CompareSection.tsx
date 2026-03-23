@@ -61,10 +61,9 @@ export default function CompareSection() {
             Sem implementação, sem dependência.
           </h2>
           <p className="mt-5 text-gray-500 text-base sm:text-lg leading-relaxed">
-            Muitas clínicas já tentaram automação antes: contrataram uma agência,
-            pagaram implementação, esperaram semanas e ainda ficaram presas num
-            sistema que não controlam. A Nexus é diferente porque é um produto,
-            não um serviço.
+            Muitas clínicas já tentaram automatizar antes: contrataram agências,
+            pagaram caro pela implementação e ficaram presas em sistemas complexos 
+            que não controlam. A Nexus é um produto pronto para uso, feito para simplificar.
           </p>
         </motion.div>
 
@@ -77,19 +76,19 @@ export default function CompareSection() {
         >
           {/* Cabeçalho da tabela */}
           <div className="grid grid-cols-3 bg-[#f9fafb] border-b border-gray-100">
-            <div className="py-4 px-4 sm:px-6">
-              <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">
+            <div className="py-3 px-3 sm:py-4 sm:px-6">
+              <span className="text-[10px] sm:text-xs font-semibold text-gray-400 tracking-widest uppercase">
                 Item
               </span>
             </div>
-            <div className="py-4 px-4 sm:px-6 border-l border-gray-100 bg-[#111827]">
-              <span className="text-xs font-semibold text-[#4A90E2] tracking-widest uppercase">
+            <div className="py-3 px-3 sm:py-4 sm:px-6 border-l border-gray-100 bg-[#111827]">
+              <span className="text-[10px] sm:text-xs font-semibold text-[#4A90E2] tracking-widest uppercase">
                 Nexus
               </span>
             </div>
-            <div className="py-4 px-4 sm:px-6 border-l border-gray-100">
-              <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">
-                Agência / n8n
+            <div className="py-3 px-3 sm:py-4 sm:px-6 border-l border-gray-100">
+              <span className="text-[10px] sm:text-xs font-semibold text-gray-400 tracking-widest uppercase">
+                Agência/n8n
               </span>
             </div>
           </div>
@@ -103,30 +102,30 @@ export default function CompareSection() {
               transition={{ duration: 0.35, delay: 0.15 + i * 0.07 }}
               className="grid grid-cols-3 border-b border-gray-100 last:border-b-0"
             >
-              <div className="py-4 px-4 sm:px-6 flex items-center">
-                <span className="text-sm font-medium text-gray-600 leading-snug">
+              <div className="py-3 px-3 sm:py-4 sm:px-6 flex items-center">
+                <span className="text-[11px] sm:text-sm font-medium text-gray-600 leading-tight sm:leading-snug break-words">
                   {row.attribute}
                 </span>
               </div>
 
-              <div className="py-4 px-4 sm:px-6 border-l border-gray-100 bg-[#111827] flex items-center gap-2.5">
+              <div className="py-3 px-2 sm:py-4 sm:px-6 border-l border-gray-100 bg-[#111827] flex items-center gap-1.5 sm:gap-2.5">
                 <Check
                   size={14}
-                  className="text-[#4A90E2] shrink-0"
+                  className="text-[#4A90E2] shrink-0 hidden sm:block"
                   strokeWidth={2.5}
                 />
-                <span className="text-sm font-semibold text-white leading-snug">
+                <span className="text-[11px] sm:text-sm font-semibold text-white leading-tight sm:leading-snug">
                   {row.nexus}
                 </span>
               </div>
 
-              <div className="py-4 px-4 sm:px-6 border-l border-gray-100 flex items-center gap-2.5">
+              <div className="py-3 px-2 sm:py-4 sm:px-6 border-l border-gray-100 flex items-center gap-1.5 sm:gap-2.5">
                 <X
                   size={14}
-                  className="text-gray-300 shrink-0"
+                  className="text-gray-400 shrink-0 hidden sm:block"
                   strokeWidth={2.5}
                 />
-                <span className="text-sm text-gray-400 leading-snug">
+                <span className="text-[11px] sm:text-sm text-gray-500 leading-tight sm:leading-snug">
                   {row.agency}
                 </span>
               </div>

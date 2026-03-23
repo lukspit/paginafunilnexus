@@ -16,8 +16,16 @@ const steps = [
     number: "02",
     icon: MessageSquare,
     title: "A IA atende como uma recepcionista experiente",
-    description:
-      "Cada mensagem é respondida em segundos, no tom e no estilo da sua clínica. A IA não segue um script engessado: ela entende contexto, adapta a conversa e conduz o paciente até o agendamento de forma natural. A maioria dos pacientes não percebe que está falando com uma IA.",
+    description: (
+      <>
+        <p>
+          Cada mensagem é respondida em segundos, mantendo o tom de voz e o estilo da sua própria clínica.
+        </p>
+        <p className="mt-2.5">
+          Esqueça os robôs engessados: nossa IA entende o contexto das dúvidas, responde objeções e conduz o paciente até o agendamento de forma 100% natural.
+        </p>
+      </>
+    ),
   },
   {
     number: "03",
@@ -81,9 +89,9 @@ export default function SolutionSection() {
                   <h3 className="text-xl font-bold text-[#111827] mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-gray-500 text-[15px] leading-relaxed">
+                  <div className="text-gray-500 text-[15px] leading-relaxed">
                     {step.description}
-                  </p>
+                  </div>
                 </motion.div>
               )
             })}
