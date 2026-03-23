@@ -138,10 +138,10 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
 
   // Auto scroll to bottom
   useEffect(() => {
-    if (scrollRef.current) {
+    if (scrollRef.current && phase === "chat") {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
-  }, [messages, isTyping])
+  }, [messages, isTyping, phase])
 
   // Lock body scroll when open
   useEffect(() => {
@@ -377,11 +377,11 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
                     que atendemos. Escolha um horário abaixo para uma demonstração
                     do sistema em funcionamento.
                   </div>
-                  <div className="w-full flex-1 min-h-[400px] overflow-y-auto rounded-2xl border border-gray-100 bg-white">
+                  <div className="w-full rounded-2xl border border-gray-100 bg-white overflow-hidden pb-4">
                     <Cal
                       namespace="demonstracao"
                       calLink="nexusclinicas/demonstracao"
-                      style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                      style={{ width: "100%" }}
                       config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
                     />
                   </div>
