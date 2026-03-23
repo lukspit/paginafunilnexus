@@ -415,7 +415,7 @@ export default function ConversationalForm({ isOpen, onClose }: ConversationalFo
             <AnimatePresence>
               {phase === "chat" && !isSubmitting && currentStepData && (
                 <motion.div
-                  key={`input-${currentStep}`}
+                  key="chat-input-area"
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}

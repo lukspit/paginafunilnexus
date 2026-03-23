@@ -1,7 +1,68 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight, Zap, Check, Cross } from "lucide-react"
+
+const WORDS = ["consultas", "pacientes", "dinheiro"]
+const TYPE_MS = 90
+const DELETE_MS = 55
+const PAUSE_TYPED = 2000
+const PAUSE_DELETED = 280
+
+function TypewriterHeadline() {
+  const [wordIndex, setWordIndex] = useState(0)
+  const [displayed, setDisplayed] = useState(WORDS[0])
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [cursorOn, setCursorOn] = useState(true)
+
+  useEffect(() => {
+    const id = setInterval(() => setCursorOn(v => !v), 530)
+    return () => clearInterval(id)
+  }, [])
+
+  useEffect(() => {
+    const target = WORDS[wordIndex]
+
+    if (!isDeleting) {
+      if (displayed === target) {
+        const id = setTimeout(() => setIsDeleting(true), PAUSE_TYPED)
+        return () => clearTimeout(id)
+      }
+      const id = setTimeout(
+        () => setDisplayed(target.slice(0, displayed.length + 1)),
+        TYPE_MS
+      )
+      return () => clearTimeout(id)
+    }
+
+    if (displayed === "") {
+      const id = setTimeout(() => {
+        setIsDeleting(false)
+        setWordIndex(i => (i + 1) % WORDS.length)
+      }, PAUSE_DELETED)
+      return () => clearTimeout(id)
+    }
+
+    const id = setTimeout(
+      () => setDisplayed(displayed.slice(0, -1)),
+      DELETE_MS
+    )
+    return () => clearTimeout(id)
+  }, [displayed, isDeleting, wordIndex])
+
+  return (
+    <span className="text-[#4A90E2]">
+      {displayed}
+      <span
+        aria-hidden
+        className="inline-block w-[3px] h-[0.8em] bg-[#4A90E2] relative top-[0.05em] ml-[2px] rounded-[1px]"
+        style={{ opacity: cursorOn ? 1 : 0 }}
+      />
+      .
+    </span>
+  )
+}
 
 interface HeroProps {
   onCTAClick: () => void
@@ -52,7 +113,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
             >
               Pare de perder
               <br />
-              <span className="text-[#4A90E2]">consultas.</span>
+              <TypewriterHeadline />
             </motion.h1>
 
             {/* Subheadline */}
