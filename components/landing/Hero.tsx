@@ -20,7 +20,7 @@ const chatMessages = [
 
 export default function Hero({ onCTAClick }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden bg-white">
+    <section className="relative min-h-[100dvh] flex flex-col justify-center pt-16 overflow-hidden bg-white">
       {/* Dot grid */}
       <div className="absolute inset-0 dot-grid opacity-60" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent" />

@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
-  colorScheme: "light",
+  colorScheme: "only light",
 };
 
 const geistSans = Geist({
@@ -31,8 +31,13 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased light`}
+      style={{ colorScheme: "light" }}
+      data-theme="light"
     >
+      <head>
+        <meta name="color-scheme" content="only light" />
+      </head>
       <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
     </html>
   );
