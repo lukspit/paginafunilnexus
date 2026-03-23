@@ -62,8 +62,13 @@ export default function SolutionSection() {
 
         {/* Steps */}
         <div className="relative">
-          {/* Connecting line — desktop only */}
-          <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-gray-100 z-0" />
+          {/* Connecting line — desktop: anima da esquerda pra direita */}
+          <motion.div
+            className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-gray-100 z-0 origin-left"
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+          />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 relative z-10">
             {steps.map((step, i) => {
@@ -92,6 +97,18 @@ export default function SolutionSection() {
                   <div className="text-gray-500 text-[15px] leading-relaxed">
                     {step.description}
                   </div>
+
+                  {/* Conector vertical — mobile only, entre os passos */}
+                  {i < steps.length - 1 && (
+                    <div className="lg:hidden flex justify-center mt-6">
+                      <motion.div
+                        initial={{ scaleY: 0 }}
+                        animate={inView ? { scaleY: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.35 + i * 0.15, ease: "easeOut" }}
+                        className="w-px h-10 bg-gradient-to-b from-gray-300 to-transparent origin-top"
+                      />
+                    </div>
+                  )}
                 </motion.div>
               )
             })}

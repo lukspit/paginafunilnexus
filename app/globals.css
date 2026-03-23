@@ -74,6 +74,25 @@
   background-size: 28px 28px;
 }
 
+/* Shimmer no card Pro */
+@keyframes shimmer-pass {
+  0%         { transform: translateX(-180%) skewX(-15deg); }
+  30%, 100%  { transform: translateX(400%)  skewX(-15deg); }
+}
+
+.shimmer-streak {
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 70%
+  );
+  animation: shimmer-pass 4.5s ease-in-out 1.8s infinite;
+}
+
 .noise-bg {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 }

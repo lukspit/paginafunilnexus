@@ -99,6 +99,13 @@ export default function PricingSection({ onCTAClick }: PricingSectionProps) {
                   : "bg-white/5 border border-white/10"
               }`}
             >
+              {/* Shimmer — apenas no card em destaque */}
+              {plan.featured && (
+                <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none" aria-hidden>
+                  <div className="shimmer-streak" />
+                </div>
+              )}
+
               {plan.badge && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="px-3 py-1 rounded-full bg-white text-[#111827] text-xs font-bold tracking-wide">

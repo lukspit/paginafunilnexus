@@ -28,6 +28,17 @@ export default function CTASection({ onCTAClick }: CTASectionProps) {
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#4A90E2]/10 blur-3xl" />
 
           <div className="relative max-w-2xl">
+            {/* Indicador ao vivo */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 mb-6">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+              </span>
+              <span className="text-xs font-semibold text-green-400 uppercase tracking-wide">
+                Sistema ativo agora
+              </span>
+            </div>
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
               Sua clínica pode estar
               <br />
