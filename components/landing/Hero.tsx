@@ -107,7 +107,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[2.6rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight text-[#111827] leading-[1.08] mb-5"
+              className="text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight text-[#111827] leading-[1.08] mb-5"
             >
               Atendimento 24h no WhatsApp da sua clínica.{" "}
               <span className="text-[#4A90E2]">Sem contratar ninguém.</span>

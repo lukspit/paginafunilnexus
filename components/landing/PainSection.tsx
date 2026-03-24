@@ -9,29 +9,29 @@ const pains = [
     icon: Clock,
     headline: "Lead chega, secretária não está",
     description:
-      "Fora do expediente ou no fim de semana, o paciente manda mensagem e fica sem resposta. O resultado? Ele fecha com a primeira clínica que atender.",
-    stat: "60x menos chance de converter após 24h sem resposta",
+      "Paciente mandou mensagem fora do horário. Sem resposta, ele fecha com quem atender primeiro.",
+    stat: "Resposta em +24h = conversão quase zero",
   },
   {
     icon: PhoneOff,
     headline: "Respondeu, mas demorou demais",
     description:
-      "Mesmo no horário comercial, a fila de conversas acumula. Quando a secretária finalmente consegue responder, o paciente já está falando com o concorrente.",
-    stat: "4x menos chance em 10 minutos vs. 5 minutos",
+      "Fila acumula, demora cresce, paciente procura o concorrente.",
+    stat: "5min → 10min = 4x menos chance de agendar",
   },
   {
     icon: CalendarX,
     headline: "Lead sumiu sem marcar consulta",
     description:
-      "Pessoas que pedem informações e somem. Sem tempo para fazer um follow-up organizado, esse lead esfria e o investimento em marketing é desperdiçado.",
-    stat: "Clínicas perdem em média 30% dos leads sem follow-up",
+      "Pediu informação e sumiu. Sem follow-up, o investimento em marketing vai pro lixo.",
+    stat: "Clínicas perdem ~30% dos leads sem follow-up",
   },
   {
     icon: TrendingDown,
     headline: "Agenda com buracos toda semana",
     description:
-      "Cancelamentos de última hora e horários ociosos. Uma agenda incompleta significa profissionais parados e dinheiro deixado na mesa todos os dias.",
-    stat: "25–30% do custo operacional de clínicas é administrativo",
+      "Cancelamentos de última hora e horários vazios. Profissionais parados, dinheiro na mesa.",
+    stat: "Sem confirmação automática, buracos são inevitáveis",
   },
 ]
 
@@ -40,7 +40,7 @@ export default function PainSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="bg-[#f9fafb] py-24 lg:py-32">
+    <section ref={ref} className="bg-[#f9fafb] py-16 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Header */}
         <motion.div

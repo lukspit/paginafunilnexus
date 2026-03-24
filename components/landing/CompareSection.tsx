@@ -61,9 +61,9 @@ export default function CompareSection() {
             Sem dependência, sem complicação.
           </h2>
           <p className="mt-5 text-gray-500 text-base sm:text-lg leading-relaxed">
-            Muitas clínicas já tentaram automatizar antes: contrataram agências,
-            pagaram caro pela implementação e ficaram presas em sistemas complexos 
-            que não controlam. A Nexus é um produto pronto para uso, feito para simplificar.
+            Soluções tradicionais exigem agências, contratos longos e semanas de
+            implementação. A Nexus é um produto pronto que você mesmo configura
+            em 20 minutos.
           </p>
         </motion.div>
 

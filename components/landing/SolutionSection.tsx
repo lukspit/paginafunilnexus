@@ -16,16 +16,8 @@ const steps = [
     number: "02",
     icon: MessageSquare,
     title: "A IA atende como uma recepcionista experiente",
-    description: (
-      <>
-        <p>
-          Cada mensagem é respondida em segundos, mantendo o tom de voz e o estilo da sua própria clínica.
-        </p>
-        <p className="mt-2.5">
-          Esqueça os robôs engessados: nossa IA entende o contexto das dúvidas, responde objeções e conduz o paciente até o agendamento de forma 100% natural.
-        </p>
-      </>
-    ),
+    description:
+      "Cada mensagem respondida em segundos, no tom da sua clínica. A IA entende contexto, responde objeções e conduz até o agendamento de forma natural.",
   },
   {
     number: "03",
@@ -48,12 +40,9 @@ export default function SolutionSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-20"
+          className="mb-12 lg:mb-20"
         >
-          <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">
-            Como funciona
-          </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111827] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111827] leading-tight">
             Como funciona
           </h2>
         </motion.div>
