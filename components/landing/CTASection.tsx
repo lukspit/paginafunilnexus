@@ -40,14 +40,13 @@ export default function CTASection({ onCTAClick }: CTASectionProps) {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
-              Sua clínica pode estar
+              Sem contrato, sem risco,
               <br />
-              atendendo agora.
+              sem complicação.
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed mb-10">
-              Enquanto você lê isso, algum paciente está mandando mensagem para uma
-              clínica concorrente que vai responder antes de você. Com a Nexus, você
-              nunca perde esse momento.
+              Configure em 20 minutos. Teste com garantia de 7 dias. Cancele quando
+              quiser, sem multa. A Nexus funciona ou você não paga.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -55,7 +54,7 @@ export default function CTASection({ onCTAClick }: CTASectionProps) {
                 onClick={onCTAClick}
                 className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#4A90E2] text-white font-semibold text-base hover:bg-[#3a80d2] transition-all shadow-lg shadow-[#4A90E2]/30 cursor-pointer"
               >
-                Quero automatizar minha clínica
+                Agendar demonstração gratuita
                 <ArrowRight
                   size={18}
                   className="group-hover:translate-x-0.5 transition-transform"
@@ -67,9 +66,9 @@ export default function CTASection({ onCTAClick }: CTASectionProps) {
             </div>
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mt-10 pt-10 border-t border-white/10">
-              <Stat value="7 dias" label="de garantia" />
+              <Stat value="24h" label="de atendimento" />
               <div className="w-px h-8 bg-white/10" />
-              <Stat value="24h" label="para configurar" />
+              <Stat value="20 min" label="para configurar" />
               <div className="w-px h-8 bg-white/10" />
               <Stat value="0" label="contratos de fidelidade" />
             </div>

@@ -8,9 +8,9 @@ const steps = [
   {
     number: "01",
     icon: Link2,
-    title: "Conecta em minutos",
+    title: "Você configura em 20 minutos",
     description:
-      "Você conecta seu WhatsApp e Google Calendar. A Nexus aprende sobre sua clínica, horários disponíveis e serviços oferecidos. Zero configuração técnica.",
+      "Conecte seu WhatsApp e Google Calendar num processo simples e guiado. A Nexus aprende sobre sua clínica, horários e serviços. Sem programação, sem depender de ninguém.",
   },
   {
     number: "02",
@@ -30,9 +30,9 @@ const steps = [
   {
     number: "03",
     icon: CalendarCheck,
-    title: "Você acompanha no dashboard",
+    title: "Controle total, sem depender de ninguém",
     description:
-      "Todas as conversas, agendamentos confirmados e leads recuperados em um painel simples. Você intervém quando quiser, a IA cuida do resto.",
+      "Acompanhe conversas, agendamentos e leads recuperados em tempo real. Você intervém quando quiser, ajusta quando precisar. A IA cuida do resto.",
   },
 ]
 
@@ -54,9 +54,7 @@ export default function SolutionSection() {
             Como funciona
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111827] leading-tight">
-            Três passos para sua
-            <br />
-            clínica no piloto automático
+            Como funciona
           </h2>
         </motion.div>
 

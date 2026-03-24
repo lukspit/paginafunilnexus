@@ -10,9 +10,9 @@ Este arquivo contém todo o briefing do produto para uso no desenvolvimento da l
 
 **Meta Description oficial:** "A inteligência artificial que atende seus pacientes"
 
-**Headline principal:** "Pare de perder consultas. Sua clínica no piloto automático, 24h por dia."
+**Headline principal:** "Atendimento 24h no WhatsApp da sua clínica. Sem contratar ninguém."
 
-**Subheadline:** "Veja como a Nexus responde seus pacientes no WhatsApp, agenda consultas e recupera quem quase desistiu, enquanto você trabalha ou descansa."
+**Subheadline:** "Você configura em 20 minutos, a IA atende seus pacientes, agenda consultas e faz follow-up automaticamente. Sem depender de agência, sem complicação."
 
 ---
 
@@ -81,7 +81,7 @@ Para redes de clínicas ou alto volume de consultas.
 - SLA de tempo de resposta garantido
 - Customer Success dedicado
 
-**Todos os planos incluem 7 dias de teste grátis. Cancele quando quiser.**
+**Todos os planos incluem garantia de 7 dias. Cancele quando quiser.**
 
 ---
 
@@ -146,13 +146,12 @@ Capturar leads qualificados (donos de clínica com dor real e capacidade de paga
 ## Copy Base
 
 **CTAs disponíveis:**
-- "Quero automatizar minha clínica"
+- "Agendar demonstração gratuita"
 - "Ver demonstração"
-- "Começar teste grátis"
 - "Agendar demonstração"
 
 **Social proof / rodapé:**
-- "Todos os planos incluem 7 dias de teste grátis. Cancele quando quiser."
+- "Todos os planos incluem garantia de 7 dias. Cancele quando quiser."
 - "Powered by lucaspit.ai"
 - "Segurança garantida por tecnologia Supabase & Stripe"
 

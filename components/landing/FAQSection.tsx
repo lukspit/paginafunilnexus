@@ -7,7 +7,7 @@ import { Plus } from "lucide-react"
 const faqs = [
   {
     q: "Precisa de algum conhecimento técnico para configurar?",
-    a: "Não. A configuração é feita pelo nosso time em até 24h. Você apenas conecta seu WhatsApp e Google Calendar através de um processo simples e guiado. Sem programação, sem API keys, sem n8n.",
+    a: "Não. Você mesmo configura em cerca de 20 minutos. Basta conectar seu WhatsApp e Google Calendar num processo simples e guiado. Sem programação, sem API keys, sem n8n.",
   },
   {
     q: "A IA responde em nome do meu consultório? Parece humano?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Quantas clínicas já usam a Nexus?",
-    a: "Ainda estamos em fase de acesso antecipado com beta testers selecionados. Nosso foco agora é garantir que cada clínica tenha uma implantação impecável antes de escalar. As vagas são limitadas.",
+    a: "Estamos em fase de acesso antecipado com beta testers selecionados. Nosso foco agora é garantir que cada clínica tenha uma experiência impecável antes de escalar.",
   },
   {
     q: "Qual a diferença entre a Nexus e contratar uma agência para fazer automação?",

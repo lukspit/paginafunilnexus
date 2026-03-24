@@ -7,12 +7,12 @@ import { Check, X } from "lucide-react"
 const rows = [
   {
     attribute: "Tempo para funcionar",
-    nexus: "24 horas",
+    nexus: "20 minutos",
     agency: "Semanas ou meses",
   },
   {
     attribute: "Custo de entrada",
-    nexus: "Zero implementação",
+    nexus: "Sem setup complexo",
     agency: "Taxa de setup + mensalidade",
   },
   {
@@ -56,9 +56,9 @@ export default function CompareSection() {
             Por que não uma agência
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111827] leading-tight">
-            Pronto em 24h.
+            Pronto em 20 minutos.
             <br />
-            Sem implementação, sem dependência.
+            Sem dependência, sem complicação.
           </h2>
           <p className="mt-5 text-gray-500 text-base sm:text-lg leading-relaxed">
             Muitas clínicas já tentaram automatizar antes: contrataram agências,
@@ -140,7 +140,7 @@ export default function CompareSection() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-6 text-sm text-gray-400 text-center"
         >
-          Configuração feita pelo nosso time. Você aprova e já começa a usar.
+          Você mesmo configura em 20 minutos e já começa a usar.
         </motion.p>
       </div>
     </section>

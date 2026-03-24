@@ -4,64 +4,6 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight, Check, Cross } from "lucide-react"
 
-// ─── Typewriter ───────────────────────────────────────────────────────────────
-const WORDS = ["Consultas", "Pacientes", "Dinheiro"]
-const TYPE_MS = 90
-const DELETE_MS = 55
-const PAUSE_TYPED = 2000
-const PAUSE_DELETED = 280
-
-function TypewriterHeadline() {
-  const [wordIndex, setWordIndex] = useState(0)
-  const [displayed, setDisplayed] = useState(WORDS[0])
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [cursorOn, setCursorOn] = useState(true)
-
-  useEffect(() => {
-    const id = setInterval(() => setCursorOn(v => !v), 530)
-    return () => clearInterval(id)
-  }, [])
-
-  useEffect(() => {
-    const target = WORDS[wordIndex]
-    if (!isDeleting) {
-      if (displayed === target) {
-        const id = setTimeout(() => setIsDeleting(true), PAUSE_TYPED)
-        return () => clearTimeout(id)
-      }
-      const id = setTimeout(
-        () => setDisplayed(target.slice(0, displayed.length + 1)),
-        TYPE_MS
-      )
-      return () => clearTimeout(id)
-    }
-    if (displayed === "") {
-      const id = setTimeout(() => {
-        setIsDeleting(false)
-        setWordIndex(i => (i + 1) % WORDS.length)
-      }, PAUSE_DELETED)
-      return () => clearTimeout(id)
-    }
-    const id = setTimeout(
-      () => setDisplayed(displayed.slice(0, -1)),
-      DELETE_MS
-    )
-    return () => clearTimeout(id)
-  }, [displayed, isDeleting, wordIndex])
-
-  return (
-    <span className="text-[#4A90E2]">
-      {displayed}
-      <span
-        aria-hidden
-        className="inline-block w-[3px] h-[0.8em] bg-[#4A90E2] relative top-[0.05em] ml-[2px] rounded-[1px]"
-        style={{ opacity: cursorOn ? 1 : 0 }}
-      />
-      .
-    </span>
-  )
-}
-
 // ─── Count-up ─────────────────────────────────────────────────────────────────
 function CountUp({ to, suffix = "", duration = 1100, delay = 900 }: {
   to: number
@@ -156,7 +98,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
               <span className="text-xs font-semibold text-[#4A90E2] tracking-wide uppercase">
-                Atendimento 24h no WhatsApp
+                Produto pronto — configure em 20 min
               </span>
             </motion.div>
 
@@ -165,11 +107,10 @@ export default function Hero({ onCTAClick }: HeroProps) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[2.6rem] sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-bold tracking-tight text-[#111827] leading-[1.08] mb-5"
+              className="text-[2.6rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight text-[#111827] leading-[1.08] mb-5"
             >
-              Pare de perder
-              <br />
-              <TypewriterHeadline />
+              Atendimento 24h no WhatsApp da sua clínica.{" "}
+              <span className="text-[#4A90E2]">Sem contratar ninguém.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -179,8 +120,9 @@ export default function Hero({ onCTAClick }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-gray-500 leading-relaxed mb-8"
             >
-              A Nexus responde seus pacientes no WhatsApp, agenda consultas e
-              recupera quem quase desistiu. Tudo automático, enquanto você trabalha ou descansa.
+              Você configura em 20 minutos, a IA atende seus pacientes, agenda
+              consultas e faz follow-up automaticamente. Sem depender de agência,
+              sem complicação.
             </motion.p>
 
             {/* CTA */}
@@ -194,7 +136,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
                 onClick={onCTAClick}
                 className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#4A90E2] text-white font-semibold text-base hover:bg-[#3a80d2] transition-all shadow-lg shadow-[#4A90E2]/20 cursor-pointer"
               >
-                Quero automatizar minha clínica
+                Agendar demonstração gratuita
                 <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
               <a
@@ -216,7 +158,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
               <div className="w-px h-8 bg-gray-200 hidden sm:block" />
               <StatItem countTo={24} suffix="h" label="atendimento sem pausas" />
               <div className="w-px h-8 bg-gray-200 hidden sm:block" />
-              <StatItem countTo={73} suffix="%" label="desistem com resposta lenta" />
+              <StatItem countTo={20} suffix=" min" label="para configurar e começar" />
             </motion.div>
           </div>
 

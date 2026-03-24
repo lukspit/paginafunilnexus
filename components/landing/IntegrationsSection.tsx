@@ -16,10 +16,10 @@ const integrations = [
     logo: "/logos/google_calendar_logo.png",
   },
   {
-    name: "OpenAI",
-    description: "IA generativa de última geração",
+    name: "Sua Clínica",
+    description: "IA personalizada com seus dados",
     logo: null,
-    text: "OpenAI",
+    text: "IA",
   },
 ]
 

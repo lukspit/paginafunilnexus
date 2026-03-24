@@ -22,8 +22,8 @@ export default function FeaturesSection() {
             Diferenciais
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111827] leading-tight">
-            Por que clínicas escolhem
-            <br />a Nexus
+            O que a Nexus faz
+            <br />pela sua clínica
           </h2>
         </motion.div>
 
@@ -154,9 +154,9 @@ export default function FeaturesSection() {
             {/* Mini stats visual */}
             <div className="flex flex-col gap-3 min-w-[180px]">
               {[
-                { label: "Atendimentos hoje", value: "48", color: "bg-[#4A90E2]" },
-                { label: "Agendamentos", value: "12", color: "bg-[#6DA08D]" },
-                { label: "Taxa de conversão", value: "73%", color: "bg-[#111827]" },
+                { label: "Atendimentos", value: "—", color: "bg-[#4A90E2]" },
+                { label: "Agendamentos", value: "—", color: "bg-[#6DA08D]" },
+                { label: "Taxa de conversão", value: "—", color: "bg-[#111827]" },
               ].map((item) => (
                 <div key={item.label} className="bg-gray-50 rounded-xl p-4">
                   <div className="text-2xl font-bold text-[#111827] tabular-nums">
