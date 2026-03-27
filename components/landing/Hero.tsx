@@ -139,12 +139,15 @@ export default function Hero({ onCTAClick }: HeroProps) {
                 Agendar demonstração gratuita
                 <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
-              <a
-                href="#como-funciona"
-                className="text-sm font-medium text-gray-500 hover:text-gray-800 transition-colors underline-offset-4 hover:underline"
-              >
-                Ver como funciona
-              </a>
+              <div className="relative inline-block">
+                <span className="absolute inset-0 rounded-xl animate-ping bg-[#4A90E2]/25 pointer-events-none" />
+                <a
+                  href="#plano-pro"
+                  className="relative flex items-center gap-2 px-6 py-3.5 rounded-xl border-2 border-[#4A90E2] text-[#4A90E2] font-semibold text-base hover:bg-[#4A90E2]/5 transition-colors"
+                >
+                  Assinar agora
+                </a>
+              </div>
             </motion.div>
 
             {/* Stats com count-up */}

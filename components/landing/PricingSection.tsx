@@ -16,7 +16,6 @@ const plans = [
     featured: false,
     features: [
       { text: "Atendimento IA no WhatsApp", included: true },
-      { text: "1 agenda (Google Calendar)", included: true },
       { text: "Até 300 atendimentos/mês", included: true },
       { text: "Suporte via e-mail", included: true },
       { text: "Follow-up automático de pacientes", included: false },
@@ -93,6 +92,7 @@ export default function PricingSection({ onCTAClick }: PricingSectionProps) {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              id={plan.featured ? "plano-pro" : undefined}
               className={`relative rounded-2xl p-8 flex flex-col ${
                 plan.featured
                   ? "bg-[#4A90E2] ring-2 ring-[#4A90E2]"
